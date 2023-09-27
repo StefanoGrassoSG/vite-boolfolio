@@ -1,11 +1,15 @@
 <script >
 import HeaderComponent from './components/HeaderComponent.vue';
-import MainComponent from './components/MainComponent.vue'
+import MainComponent from './components/MainComponent.vue';
+import ProjectsComponent from './components/ProjectsComponent.vue';
+import axios from 'axios';
+import { store } from './store.js'
 
 export default {
   data() {
     return {
-
+      mainMenu : false,
+      store
     }
   },
   methods: {
@@ -13,7 +17,15 @@ export default {
   },
   components: {
     HeaderComponent,
-    MainComponent
+    MainComponent,
+    ProjectsComponent
+  },
+  created() {
+    axios.get('http://localhost:8000/api/projects')
+    .then(response => {
+      console.log(response.data.results)
+      this.store.projects = response.data.results
+    })
   }
 }
 </script>
@@ -21,8 +33,10 @@ export default {
 <template>
 
   <HeaderComponent />
+  
+  <MainComponent v-if="mainMenu == true" />
 
-  <MainComponent />
+  <ProjectsComponent v-if="mainMenu == false" />
 
 </template>
 
