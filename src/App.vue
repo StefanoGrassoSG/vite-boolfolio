@@ -8,7 +8,6 @@ import { store } from './store.js'
 export default {
   data() {
     return {
-      mainMenu : false,
       store
     }
   },
@@ -24,7 +23,7 @@ export default {
     axios.get('http://localhost:8000/api/projects')
     .then(response => {
       console.log(response.data.results)
-      this.store.projects = response.data.results
+      this.store.projects = response.data.results.data
     })
   }
 }
@@ -34,9 +33,9 @@ export default {
 
   <HeaderComponent />
   
-  <MainComponent v-if="mainMenu == true" />
+  <MainComponent v-if="store.mainMenu == true" />
 
-  <ProjectsComponent v-if="mainMenu == false" />
+  <ProjectsComponent v-if="store.mainMenu == false" />
 
 </template>
 

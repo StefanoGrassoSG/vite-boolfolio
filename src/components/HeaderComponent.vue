@@ -1,25 +1,31 @@
 <script >
+import { store } from '../store.js'
+
 export default {
   data() {
     return {
-
+        store
     }
   },
   methods: {
-
+    home() {
+        store.mainMenu = true;
+    }
   }
 }
 </script>
 
 <template>
     
-  <header class="bg-white p-5">
-        <div class="px-4 container-fluid shadow py-4 d-flex justify-content-between align-items-center">
+  <header class="bg-light p-5">
+        <div class="px-4 bg-white container-fluid shadow py-3 d-flex justify-content-between align-items-center">
             <div class="info d-flex align-items-center">
-                STEFANO GRASSO
+                <div class="me fw-bold" @click="home()">
+                    STEFANO GRASSO
+                </div>
             </div>
             <div class="nav m-0">
-                <ul class="m-0">
+                <ul class="m-0 fw-bold">
                     <li class="d-inline-block ms-3 me-3">
                        <a href="">
                          About
@@ -53,5 +59,31 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+.me {
+    cursor: pointer;
+}
 
+header {
+    background: rgb(237,235,233);
+    background: linear-gradient(262deg, rgba(237,235,233,1) 0%, rgba(25,24,23,1) 100%);
+}
+
+li {
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 50%;
+}
+
+li a{
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+}
+
+li:hover {
+    background-color: lightgray;
+    border-radius: 50%;
+    transform: scale(1.1);
+}
 </style>
