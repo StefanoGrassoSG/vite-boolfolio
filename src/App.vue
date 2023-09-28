@@ -1,7 +1,6 @@
 <script >
 import HeaderComponent from './components/HeaderComponent.vue';
 import MainComponent from './components/MainComponent.vue';
-import ProjectsComponent from './components/ProjectsComponent.vue';
 import axios from 'axios';
 import { store } from './store.js'
 
@@ -16,8 +15,7 @@ export default {
   },
   components: {
     HeaderComponent,
-    MainComponent,
-    ProjectsComponent
+    MainComponent
   },
   created() {
     axios.get('http://localhost:8000/api/projects')
@@ -33,9 +31,7 @@ export default {
 
   <HeaderComponent />
   
-  <MainComponent v-if="store.mainMenu == true" />
-
-  <ProjectsComponent v-if="store.mainMenu == false" />
+  <MainComponent />
 
 </template>
 

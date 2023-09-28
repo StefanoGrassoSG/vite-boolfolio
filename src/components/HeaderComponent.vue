@@ -20,9 +20,9 @@ export default {
   <header class="bg-light p-5">
         <div class="px-4 bg-white container-fluid shadow py-3 d-flex justify-content-between align-items-center">
             <div class="info d-flex align-items-center">
-                <div class="me fw-bold" @click="home()">
+                <router-link :to="{ name: 'home' }" class="me fw-bold">
                     STEFANO GRASSO
-                </div>
+                </router-link>
             </div>
             <div class="nav m-0">
                 <ul class="m-0 fw-bold">
@@ -32,9 +32,9 @@ export default {
                        </a>
                     </li>
                     <li class="d-inline-block ms-3 me-3">
-                        <a href="">
+                        <router-link :to="{ name: 'projects' }">
                             Projects
-                        </a>
+                        </router-link>
                     </li>
                     <li class="d-inline-block ms-3 me-3">
                         <a href="">
