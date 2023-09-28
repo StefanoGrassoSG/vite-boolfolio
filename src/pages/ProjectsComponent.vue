@@ -30,33 +30,36 @@ export default {
             <div class="row d-flex align-items-stretch">
                 <div class="col-3 mt-3" v-for="(project, i) in store.projects" :key="i">
                     <div class="card h-100 p-3">
-                        <div class="mb-2">
-                            NAME: {{ project.name }}
-                        </div>
-                        <div class="mb-2">
-                            DESCRIPTION: {{ project.description }}
-                        </div>
-                        <div class="mb-2">
-                            START DATE: {{ project.start_date }}
-                        </div>
-                        <div class="mb-2">
-                            END DATE: {{ project.end_date }}
-                        </div>
-                        <div class="mb-2">
-                            PROJECT STATUS: {{ project.project_status }}
-                        </div>
-                        <div class="mb-2">
-                            PROJECT LINK: <a :href="project.project_link">{{ project.project_link }}</a>
-                        </div>
-                        <div class="mb-2">
-                            TYPE: {{ project.type.name }}
-                        </div>
-                        <div class="mb-2">
-                            TECHNOLOGIES: 
-                            <div v-for="(technology, i) in project.technologies" :key="i">
-                                 {{ technology.name }}
+                        <div class="card-body">
+                            <div class="mb-2">
+                                 NAME: {{ project.name }}
+                            </div>
+                            <div class="mb-2">
+                                DESCRIPTION: {{ project.description }}
+                            </div>
+                            <div class="mb-2">
+                                START DATE: {{ project.start_date }}
+                            </div>
+                            <div class="mb-2">
+                                END DATE: {{ project.end_date }}
+                            </div>
+                            <div class="mb-2">
+                                PROJECT STATUS: {{ project.project_status }}
+                            </div>
+                            <div class="mb-2">
+                                PROJECT LINK: <a :href="project.project_link">{{ project.project_link }}</a>
+                            </div>
+                            <div class="mb-2">
+                                TYPE: {{ project.type.name }}
+                            </div>
+                            <div class="mb-2">
+                                TECHNOLOGIES: 
+                                <div v-for="(technology, i) in project.technologies" :key="i">
+                                    {{ technology.name }}
+                                </div>
                             </div>
                         </div>
+        
                         <div>
                             <router-link :to="{ name: 'project', params: { slug: project.slug} }" class="btn btn-primary">
                                 View Details
