@@ -31,11 +31,11 @@ export default {
                          About
                        </a>
                     </li>
-                    <li class="d-inline-block ms-3 me-3">
-                        <router-link :to="{ name: 'projects' }">
+                    <router-link :to="{ name: 'projects' }" class="projects d-inline-block ms-3 me-3">
+                        <div :to="{ name: 'projects' }">
                             Projects
-                        </router-link>
-                    </li>
+                        </div>
+                    </router-link>
                     <li class="d-inline-block ms-3 me-3">
                         <a href="">
                             Clients
@@ -63,20 +63,25 @@ export default {
     cursor: pointer;
 }
 
-li {
+li,
+.projects
+ {
     padding: 15px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     border-radius: 50%;
 }
 
-li a{
+li a,
+.projects
+{
     text-decoration: none;
     color: black;
     text-transform: uppercase;
 }
 
-li:hover {
+li:hover,
+.projects:hover {
     background-color: lightgray;
     border-radius: 50%;
     transform: scale(1.1);
