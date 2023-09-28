@@ -1,5 +1,6 @@
 <script >
 import { store } from '../store.js'
+import axios from 'axios';
 
 export default {
   data() {
@@ -7,8 +8,17 @@ export default {
         store
     }
   },
+  created() {
+    this.getProjects()
+  },    
   methods: {
-
+    getProjects() {
+        axios.get('http://localhost:8000/api/projects')
+        .then(response => {
+        console.log(response.data.results)
+        this.store.projects = response.data.results.data
+    })
+    }
   }
 }
 </script>
@@ -47,6 +57,11 @@ export default {
                                  {{ technology.name }}
                             </div>
                         </div>
+                        <div>
+                            <router-link :to="{ name: 'project', params: { slug: project.slug} }" class="btn btn-primary">
+                                View Details
+                            </router-link>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -57,7 +72,7 @@ export default {
 
 <style lang="scss" scoped>
 main {
-    height: calc(100vh - 182px);
+    height: calc(100vh - 184px);
     background-image: url('https://rare-gallery.com/uploads/posts/1247933-white-geometric.jpg');
     background-position: center;
     background-repeat: no-repeat;

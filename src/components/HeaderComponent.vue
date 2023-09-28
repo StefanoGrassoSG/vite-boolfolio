@@ -17,8 +17,8 @@ export default {
 
 <template>
     
-  <header class="bg-light p-5">
-        <div class="px-4 bg-white container-fluid shadow py-3 d-flex justify-content-between align-items-center">
+  <header class="bg-light-subtle border p-5">
+        <div class="px-4 bg-white container-fluid shadow-lg py-3 d-flex justify-content-between align-items-center">
             <div class="info d-flex align-items-center">
                 <router-link :to="{ name: 'home' }" class="me fw-bold">
                     STEFANO GRASSO
@@ -61,11 +61,6 @@ export default {
 <style lang="scss" scoped>
 .me {
     cursor: pointer;
-}
-
-header {
-    background: rgb(237,235,233);
-    background: linear-gradient(262deg, rgba(237,235,233,1) 0%, rgba(25,24,23,1) 100%);
 }
 
 li {

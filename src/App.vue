@@ -1,7 +1,6 @@
 <script >
-import HeaderComponent from './components/HeaderComponent.vue';
+import HeaderComponent from './components/headercomponent.vue';
 import MainComponent from './components/MainComponent.vue';
-import axios from 'axios';
 import { store } from './store.js'
 
 export default {
@@ -15,14 +14,7 @@ export default {
   },
   components: {
     HeaderComponent,
-    MainComponent
-  },
-  created() {
-    axios.get('http://localhost:8000/api/projects')
-    .then(response => {
-      console.log(response.data.results)
-      this.store.projects = response.data.results.data
-    })
+    MainComponent,
   }
 }
 </script>

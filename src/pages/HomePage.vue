@@ -35,7 +35,7 @@ export default {
 
 <style lang="scss" scoped>
 main {
-    height: calc(100vh - 182px);
+    height: calc(100vh - 184px);
     background-image: url('https://rare-gallery.com/uploads/posts/1247933-white-geometric.jpg');
     background-position: center;
     background-repeat: no-repeat;
