@@ -5,7 +5,8 @@ import { store } from '../store.js'
 export default {
   data() {
     return {
-        store
+        store,
+        notFound: false
     }
   },
   created() {
@@ -17,9 +18,13 @@ export default {
         axios.get(`http://localhost:8000/api/projects/${this.$route.params.slug}`)
         .then(response => {
         console.log(response.data.results)
+        console.log(response)
         this.store.project = response.data.results;
+        if(response.data.success == false) {
+            this.notFound = true;
+        }
     })
-    }
+}
 }}
 </script>
 
@@ -27,8 +32,11 @@ export default {
 
     <main>
         <div>
-            <h1>
+            <h1 v-if="store.project">
                 {{ store.project.name }}
+            </h1>
+            <h1 v-if="notFound == true">
+                Error 404: Not Found
             </h1>
         </div>
     </main>
