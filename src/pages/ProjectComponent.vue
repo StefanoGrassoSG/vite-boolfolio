@@ -23,6 +23,11 @@ export default {
         if(response.data.success == false) {
             this.notFound = true;
         }
+    }).catch( error => {
+        console.log(error)
+        if(error.response.status == 404) {
+            this.notFound = true;
+        }
     })
 }
 }}
