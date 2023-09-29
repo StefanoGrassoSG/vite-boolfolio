@@ -2,6 +2,6 @@ import { reactive } from 'vue';
 
 export const store = reactive({
     projects : [],
-    project : [],
+    project : null,
     mainMenu : true,
 })

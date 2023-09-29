@@ -24,7 +24,7 @@ export default {
                 A full-stack web developer building the Frontend and Backend of Websites and Web Applications that leads to the success of the overall product.
             </p>
             <div class="text-center mt-4">
-                <router-link :to="{ name: 'projects' }" class="btn btn-warning fw-bold px-5 py-3">
+                <router-link :to="{ name: 'projects' }" class="btn btn-warning fw-bold px-5 text-uppercase py-3">
                     See my projects
                 </router-link>
             </div>

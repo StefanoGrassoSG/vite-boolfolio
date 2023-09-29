@@ -11,6 +11,9 @@ export default {
   created() {
     this.getProject();
   },
+  mounted() {
+    this.store.project = null;
+  },    
   methods: {
     getProject() {
         axios.get(`http://localhost:8000/api/projects/${this.$route.params.slug}`)
