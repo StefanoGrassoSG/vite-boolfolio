@@ -41,7 +41,7 @@ export default {
                 {{ store.project.name }}
             </h1>
             <div>
-                <img v-if="store.project.cover_img" :src="store.project.cover_img" :alt="store.project.name">
+                <img v-if="store.project && store.project.full_cover_img" :src="store.project.full_cover_img" :alt="store.project.name">
             </div>
             <h1 v-if="notFound == true">
                 Error 404: Not Found
